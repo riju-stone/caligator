@@ -1,7 +1,5 @@
 # Caligator
 ### This repo is no longer being maintained. All of the features are being merged into a new repo which will be actively maintained going forward. [Go here](github.com/riju-stone/commit)
-
-[![Gitter](https://badges.gitter.im/Caligatorapp/community.svg)](https://gitter.im/Caligatorapp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) ![](https://travis-ci.org/sarthology/caligator.svg?branch=master)
  
 
 🐊 An open source kickass cross platform Calculator
