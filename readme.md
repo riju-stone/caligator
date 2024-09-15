@@ -1,5 +1,5 @@
 # Caligator
-### This repo is no longer being maintained. All of the features are being merged into a new repo which will be actively maintained going forward. [Go here](github.com/riju-stone/commit)
+### This repo is no longer being maintained. All of the features are being merged into a new repo which will be actively maintained going forward. [Go here](https://github.com/riju-stone/commit)
  
 
 🐊 An open source kickass cross platform Calculator
