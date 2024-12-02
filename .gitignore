@@ -4,4 +4,6 @@ out
 .DS_Store
 *.log*
 .vscode
-archive/*
+archive/
+build/
+
