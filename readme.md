@@ -1,12 +1,8 @@
 # Caligator
-### This repo is no longer being maintained. All of the features are being merged into a new repo which will be actively maintained going forward. [Go here](https://github.com/riju-stone/commit)
- 
 
 🐊 An open source kickass cross platform Calculator
 
 ![Caligator](https://i.postimg.cc/3x587Fjk/calligator.png)
-
-
 
 ## Highlights
 
@@ -21,7 +17,7 @@
 
 ## Install
 
-*macOS 10.10+, Linux, and Windows 7+ are supported (64-bit only for now).*
+_macOS 10.10+, Linux, and Windows 7+ are supported (64-bit only for now)._
 
 ### macOS
 
@@ -31,14 +27,14 @@
 
 [**Download**](https://github.com/riju-stone/caligator/releases) the `.AppImage` or `.deb` file.
 
-*The AppImage needs to be [made executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download.*
+_The AppImage needs to be [made executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download._
 
 ### Windows
 
 [**Download**](https://github.com/riju-stone/caligator/releases) the `.exe` file.
 
-
 ## TODO
+
 - :heavy_check_mark: Trigonometric functions
 - :heavy_check_mark: Logarithmic functions
 - [ ] Base conversions
@@ -55,7 +51,7 @@
 ### Run
 
 ```
-$ npm install && npm start
+npm install && npm start
 ```
 
 ### Build
@@ -65,7 +61,7 @@ See the [`electron-builder` docs](https://www.electron.build/multi-platform-buil
 ### Publish
 
 ```
-$ npm run release
+npm run release
 ```
 
 Then edit the automatically created GitHub Releases draft and publish.
@@ -73,5 +69,5 @@ Then edit the automatically created GitHub Releases draft and publish.
 ## Buy Me a Coffee
 
 Any contribution is much appretiated and will help me carry on with my work.
-If you like my work you could buy me a coffee here, 
+If you like my work you could buy me a coffee here,
 [`Paypal`](https://www.paypal.me/rijustone)
