@@ -25,6 +25,7 @@
     "@electron-toolkit/utils": "^3.0.0",
     "@reduxjs/toolkit": "^2.4.0",
     "electron-updater": "^6.3.9",
+    "husky": "^9.1.7",
     "react-redux": "^9.1.2"
   },
   "devDependencies": {
