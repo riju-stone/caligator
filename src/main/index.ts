@@ -22,7 +22,7 @@ function createWindow(): void {
     mainWindow.show()
   })
 
- mainWindow.webContents.setWindowOpenHandler((details) => {
+  mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
@@ -72,4 +72,4 @@ app.on('window-all-closed', () => {
 })
 
 // In this file you can include the rest of your app"s specific main process
-/ code. You can also put them in separate files and require them here.
+// code.You can also put them in separate files and require them here.

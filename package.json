@@ -21,30 +21,29 @@
     "build:linux": "electron-vite build && electron-builder --linux"
   },
   "dependencies": {
-    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^3.0.0",
-    "@reduxjs/toolkit": "^2.4.0",
-    "electron-updater": "^6.3.9",
+    "electron-updater": "^6.7.3",
     "husky": "^9.1.7",
-    "react-redux": "^9.1.2"
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
     "@electron-toolkit/eslint-config-ts": "^1.0.1",
     "@electron-toolkit/tsconfig": "^1.0.1",
-    "@types/node": "^18.19.67",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@types/node": "^22.19.5",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
     "electron": "^28.3.3",
     "electron-builder": "^24.13.3",
     "electron-vite": "^2.3.0",
     "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.2",
-    "prettier": "^3.4.1",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "^3.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "typescript": "^5.7.2",
-    "vite": "^5.4.11"
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
   }
 }
