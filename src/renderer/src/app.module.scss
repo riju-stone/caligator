@@ -1,0 +1,25 @@
+.mainWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2D3250;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  width: 1.5px;
+  height: 100%;
+  background-color: #424769;
+  cursor: col-resize;
+  flex-shrink: 0;
+}

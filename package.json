@@ -25,6 +25,9 @@
     "@electron-toolkit/utils": "^3.0.0",
     "electron-updater": "^6.7.3",
     "husky": "^9.1.7",
+    "lucide-react": "^0.562.0",
+    "motion": "^12.25.0",
+    "uuid": "^13.0.0",
     "zustand": "^5.0.9"
   },
   "devDependencies": {
@@ -43,6 +46,7 @@
     "prettier": "^3.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sass-embedded": "^1.97.2",
     "typescript": "^5.9.3",
     "vite": "^5.4.21"
   }

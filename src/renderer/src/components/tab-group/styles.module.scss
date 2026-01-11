@@ -1,0 +1,55 @@
+  .tabGroupWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 32px;
+    background-color: #424769;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .tabGroupContent {
+    margin: 0 0 0 60px;
+    width: calc(100% - 80px);
+    padding: 0 10px;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #424769;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: clip;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .addTabButton {
+    width: 20px;
+    height: 20px;
+    background-color: #2D3250;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #2D3250;
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
