@@ -5,21 +5,28 @@ import TabComponent from '../tab/tab'
 import { useTabStore } from '../../store/tabStore'
 
 function TabGroupComponent() {
-  const { tabs, addTab, setTabs } = useTabStore()
+  const { tabs, addTab, setActiveTab, setTabs, activeTabId } = useTabStore()
+
+
+  const handleAddTab = () => {
+    addTab()
+  }
 
   return (
     <div className={styles.tabGroupWrapper} >
-      <Reorder.Group as="div" axis="x" values={tabs} onReorder={setTabs} className={styles.tabGroupContent} >
+      <Reorder.Group as="div" axis="x" values={Object.keys(tabs)} onReorder={(newOrder) => setTabs(newOrder.reduce((acc, tabId) => {
+        return { ...acc, [tabId]: { id: tabs[tabId].id, name: tabs[tabId].name, isActive: newOrder.indexOf(tabId) === 0 } }
+      }, {} as Record<string, { id: string, name: string, isActive: boolean }>))} className={styles.tabGroupContent} >
         <AnimatePresence>
-          {tabs.map((tab) => (
-            <motion.div key={tab.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.125, delay: 0.25 }}>
-              <Reorder.Item as="div" value={tab} key={tab.id}>
-                <TabComponent id={tab.id} name={tab.name} icon={tab.icon} isActive={tab.isActive} />
+          {Object.keys(tabs).map((tabId) => (
+            <motion.div key={tabId} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.125, delay: 0.25 }}>
+              <Reorder.Item className={styles.tabItem} as="div" value={tabId} key={tabId} style={{ zIndex: 99 }}>
+                <TabComponent id={tabId} name={tabs[tabId].name} isActive={tabs[tabId].id === activeTabId} />
               </Reorder.Item>
             </motion.div>
 
           ))}
-          <motion.button layout="position" className={styles.addTabButton} onClick={() => addTab(`Tab ${tabs.length + 1}`, 'icon2')}>
+          <motion.button layout="position" className={styles.addTabButton} onClick={() => handleAddTab()}>
             <Plus color="white" size={20} />
           </motion.button>
         </AnimatePresence>

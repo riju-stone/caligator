@@ -6,35 +6,60 @@ export const MAX_TABS = 6;
 type Tab = {
   id: string
   name: string
-  icon: string
-  isActive: boolean
 }
 
 export type TabState = {
-  tabs: Array<Tab>
+  tabs: Record<string, Tab>
+  activeTabId: string
 }
 
 export type TabActions = {
-  addTab: (name: string, icon: string) => void
+  addTab: () => void
   removeTab: (tabId: string) => void
-  updateTab: (tabId: string, name: string, icon: string) => void
-  setTabs: (tabs: Array<Tab>) => void
+  setTabs: (tabs: Record<string, Tab>) => void
   setActiveTab: (tabId: string) => void
 }
 
-// There should be atleast one tab
-const initialState: TabState = {
-  tabs: [{ id: uuid(), name: 'Tab 1', icon: 'icon1', isActive: true }],
+function initialState(): TabState {
+  let tabId = uuid()
+  return {
+    tabs: { [tabId]: { id: tabId, name: 'Tab 1' } },
+    activeTabId: tabId
+  }
 }
 
 export const useTabStore = create<TabState & TabActions>((set) => ({
-  ...initialState,
-  addTab: (name: string, icon: string) => set((state) => ({
-    // Set the new tab as active and all
-    tabs: state.tabs.length >= MAX_TABS ? state.tabs : [...state.tabs, { id: uuid(), name, icon, isActive: false }]
-  })),
-  removeTab: (tabId: string) => set((state) => ({ tabs: state.tabs.length === 1 ? state.tabs : state.tabs.filter((tab) => tab.id !== tabId) })),
-  updateTab: (tabId: string, name: string, icon: string) => set((state) => ({ tabs: state.tabs.map((tab) => tab.id === tabId ? { ...tab, name, icon } : tab) })),
-  setTabs: (tabs: Array<Tab>) => set({ tabs }),
-  setActiveTab: (tabId: string) => set((state) => ({ tabs: state.tabs.map((tab) => tab.id === tabId ? { ...tab, isActive: true } : { ...tab, isActive: false }) })),
-})) 
+  ...initialState(),
+  addTab: () => set((state) => {
+    let newTabId = uuid()
+    return {
+      tabs: {
+        ...state.tabs,
+        [newTabId]: { id: newTabId, name: `Tab ${Object.keys(state.tabs).length + 1}` }
+      },
+      activeTabId: newTabId
+    }
+  }),
+  removeTab: (tabId: string) => set((state) => {
+    let activeTabId = state.activeTabId
+    const newTabs = { ...state.tabs }
+    delete newTabs[tabId]
+
+    if (state.activeTabId === tabId) {
+      const tabArray = Object.values(state.tabs)
+      const currentTabIndex = tabArray.findIndex((tab) => tab.id === tabId)
+
+      if (currentTabIndex > 0) {
+        activeTabId = tabArray[currentTabIndex - 1].id
+      } else if (tabArray.length > 1) {
+        activeTabId = tabArray[currentTabIndex + 1].id
+      } else {
+        activeTabId = ''
+      }
+    }
+
+    return { tabs: newTabs, activeTabId }
+  }),
+  setTabs: (tabs: Record<string, Tab>) => set({ tabs: tabs }),
+  setActiveTab: (tabId: string) => set({ activeTabId: tabId }),
+}))

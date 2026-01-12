@@ -3,8 +3,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 32px;
-    background-color: #424769;
+    height: 28px;
+    // background-color: #424769;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -19,7 +19,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    background-color: #424769;
+    // background-color: #424769;
     gap: 4px;
     overflow-x: auto;
     overflow-y: clip;
@@ -31,10 +31,15 @@
     }
   }
 
+  .tabItem {
+    position: relative;
+    // z-index: 99;
+  }
+
   .addTabButton {
     width: 20px;
     height: 20px;
-    background-color: #2D3250;
+    // background-color: #2D3250;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
@@ -43,8 +48,13 @@
     align-items: center;
     justify-content: center;
 
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+
     &:hover {
-      background-color: #2D3250;
+      // background-color: #2D3250;
       opacity: 0.8;
     }
 
