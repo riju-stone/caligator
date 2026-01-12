@@ -3,8 +3,12 @@ import styles from "./app.module.scss"
 import InputSectionComponent from "./components/input-section/input-section"
 import OutputSectionComponent from "./components/output-section/output-section"
 import TabGroupComponent from "./components/tab-group/tab-group"
+import FooterComponent from "./components/footer/footer"
+import { useThemeStore } from "./store/themeStore"
+import PanelComponent from "./components/panel/panel"
 
 function App(): JSX.Element {
+  const { themeColors } = useThemeStore()
   const contentWrapperRef = useRef<HTMLDivElement>(null)
   const [panelWidth, setPanelWidth] = useState(50)
 
@@ -44,13 +48,15 @@ function App(): JSX.Element {
 
 
   return (
-    <div className={styles.mainWrapper}>
+    <div className={styles.mainWrapper} style={{ backgroundColor: themeColors.primaryColor }} >
       <TabGroupComponent />
       <div className={styles.contentWrapper} ref={contentWrapperRef}>
         <InputSectionComponent panelWidth={panelWidth} />
-        <div className={styles.divider} onMouseDown={handleDividerMouseDown} />
+        <div className={styles.divider} onMouseDown={handleDividerMouseDown} style={{ backgroundColor: themeColors.secondaryColor }} />
         <OutputSectionComponent panelWidth={100 - panelWidth} />
       </div>
+      <PanelComponent />
+      <FooterComponent />
     </div>
   )
 }

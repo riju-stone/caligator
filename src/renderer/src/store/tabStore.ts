@@ -3,9 +3,15 @@ import { v7 as uuid } from 'uuid'
 
 export const MAX_TABS = 6;
 
+type TabContent = {
+  input: string
+  output: string
+}
+
 type Tab = {
   id: string
   name: string
+  content: TabContent
 }
 
 export type TabState = {
@@ -23,7 +29,7 @@ export type TabActions = {
 function initialState(): TabState {
   let tabId = uuid()
   return {
-    tabs: { [tabId]: { id: tabId, name: 'Tab 1' } },
+    tabs: { [tabId]: { id: tabId, name: 'Tab 1', content: { input: '', output: '' } } },
     activeTabId: tabId
   }
 }
@@ -35,7 +41,7 @@ export const useTabStore = create<TabState & TabActions>((set) => ({
     return {
       tabs: {
         ...state.tabs,
-        [newTabId]: { id: newTabId, name: `Tab ${Object.keys(state.tabs).length + 1}` }
+        [newTabId]: { id: newTabId, name: `Tab ${Object.keys(state.tabs).length + 1}`, content: { input: '', output: '' } }
       },
       activeTabId: newTabId
     }
